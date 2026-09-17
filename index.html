@@ -11,12 +11,31 @@
 
     <meta
         name="description"
-        content="Plataforma interativa para estudar HTML semântico, acessibilidade, SEO e desenvolvimento web."
+        content="Plataforma interativa para aprender HTML semântico através de exemplos, playground, análise automática e quiz."
+    >
+
+    <meta
+        name="theme-color"
+        content="#080d18"
     >
 
     <title>Semantic.dev | Aprenda HTML Semântico</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="manifest"
+        href="manifest.webmanifest"
+    >
+
+    <link
+        rel="icon"
+        href="img/icon.svg"
+        type="image/svg+xml"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
     <link
         rel="stylesheet"
@@ -26,15 +45,11 @@
 
 <body>
 
-    <!-- PROGRESSO DE LEITURA -->
-
     <div
         id="page-progress"
         class="page-progress"
     ></div>
 
-
-    <!-- HEADER -->
 
     <header class="header">
 
@@ -74,6 +89,10 @@
                     Explorador
                 </a>
 
+                <a href="#playground">
+                    Playground
+                </a>
+
                 <a href="#quiz">
                     Quiz
                 </a>
@@ -82,6 +101,17 @@
 
 
             <div class="header-actions">
+
+                <button
+                    id="install-app"
+                    class="icon-button"
+                    aria-label="Instalar Semantic.dev"
+                    title="Instalar aplicativo"
+                    hidden
+                >
+                    <i class="fa-solid fa-download"></i>
+                </button>
+
 
                 <button
                     id="theme-toggle"
@@ -107,8 +137,6 @@
 
     </header>
 
-
-    <!-- CONTEÚDO -->
 
     <main>
 
@@ -136,10 +164,9 @@
 
 
                     <p>
-                        Explore HTML semântico através de exemplos,
-                        explicações interativas e desafios práticos.
-                        Um projeto criado para aprender desenvolvimento
-                        web construindo algo de verdade.
+                        Explore HTML semântico através de conteúdo,
+                        exemplos, laboratório de código, análise automática
+                        e desafios interativos.
                     </p>
 
 
@@ -156,12 +183,12 @@
 
 
                         <a
-                            href="#quiz"
+                            href="#playground"
                             class="button secondary-button"
                         >
-                            <i class="fa-solid fa-brain"></i>
+                            <i class="fa-solid fa-terminal"></i>
 
-                            Fazer o quiz
+                            Abrir Playground
                         </a>
 
                     </div>
@@ -175,8 +202,8 @@
                         </div>
 
                         <div>
-                            <strong>8</strong>
-                            <span>Questões no quiz</span>
+                            <strong>100</strong>
+                            <span>Pontos de análise</span>
                         </div>
 
                         <div>
@@ -192,14 +219,19 @@
                 <figure class="hero-image">
 
                     <div class="image-badge">
+
                         <i class="fa-brands fa-html5"></i>
+
                         HTML5
+
                     </div>
+
 
                     <img
                         src="img/html-semantico.jpg"
                         alt="Representação relacionada ao desenvolvimento web e HTML semântico"
                     >
+
 
                     <figcaption>
                         Estrutura, significado e boas práticas.
@@ -241,7 +273,9 @@
                 <article class="content-card">
 
                     <div class="large-icon">
+
                         <i class="fa-brands fa-html5"></i>
+
                     </div>
 
 
@@ -265,6 +299,7 @@
                             <code>&lt;figure&gt;</code> e
                             <code>&lt;footer&gt;</code>.
                         </p>
+
 
                         <div class="concept-highlight">
 
@@ -307,7 +342,7 @@
                     </h2>
 
                     <p>
-                        Uma estrutura semântica beneficia pessoas,
+                        Uma boa estrutura beneficia usuários,
                         buscadores e desenvolvedores.
                     </p>
 
@@ -319,7 +354,9 @@
                     <article class="card">
 
                         <div class="card-icon">
+
                             <i class="fa-solid fa-universal-access"></i>
+
                         </div>
 
                         <h3>
@@ -337,7 +374,9 @@
                     <article class="card">
 
                         <div class="card-icon">
+
                             <i class="fa-solid fa-magnifying-glass"></i>
+
                         </div>
 
                         <h3>
@@ -355,7 +394,9 @@
                     <article class="card">
 
                         <div class="card-icon">
+
                             <i class="fa-solid fa-code"></i>
+
                         </div>
 
                         <h3>
@@ -396,7 +437,7 @@
                     </h2>
 
                     <p>
-                        Veja uma representação simplificada da organização semântica.
+                        Uma representação simplificada de uma estrutura semântica.
                     </p>
 
                 </div>
@@ -412,6 +453,7 @@
                     <div class="semantic-box main-box">
 
                         &lt;main&gt;
+
 
                         <div class="semantic-columns">
 
@@ -474,58 +516,138 @@
                 <div class="tag-grid">
 
                     <article>
-                        <span class="tag-number">01</span>
-                        <code>&lt;header&gt;</code>
-                        <p>Cabeçalho da página ou de uma seção.</p>
+
+                        <span class="tag-number">
+                            01
+                        </span>
+
+                        <code>
+                            &lt;header&gt;
+                        </code>
+
+                        <p>
+                            Cabeçalho da página ou seção.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">02</span>
-                        <code>&lt;nav&gt;</code>
-                        <p>Região contendo links de navegação.</p>
+
+                        <span class="tag-number">
+                            02
+                        </span>
+
+                        <code>
+                            &lt;nav&gt;
+                        </code>
+
+                        <p>
+                            Região contendo links de navegação.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">03</span>
-                        <code>&lt;main&gt;</code>
-                        <p>Conteúdo principal do documento.</p>
+
+                        <span class="tag-number">
+                            03
+                        </span>
+
+                        <code>
+                            &lt;main&gt;
+                        </code>
+
+                        <p>
+                            Conteúdo principal do documento.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">04</span>
-                        <code>&lt;article&gt;</code>
-                        <p>Conteúdo independente e reutilizável.</p>
+
+                        <span class="tag-number">
+                            04
+                        </span>
+
+                        <code>
+                            &lt;article&gt;
+                        </code>
+
+                        <p>
+                            Conteúdo independente e reutilizável.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">05</span>
-                        <code>&lt;section&gt;</code>
-                        <p>Seção temática do conteúdo.</p>
+
+                        <span class="tag-number">
+                            05
+                        </span>
+
+                        <code>
+                            &lt;section&gt;
+                        </code>
+
+                        <p>
+                            Seção temática do conteúdo.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">06</span>
-                        <code>&lt;figure&gt;</code>
-                        <p>Conteúdo ilustrativo relacionado ao texto.</p>
+
+                        <span class="tag-number">
+                            06
+                        </span>
+
+                        <code>
+                            &lt;figure&gt;
+                        </code>
+
+                        <p>
+                            Conteúdo ilustrativo relacionado.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">07</span>
-                        <code>&lt;aside&gt;</code>
-                        <p>Conteúdo complementar.</p>
+
+                        <span class="tag-number">
+                            07
+                        </span>
+
+                        <code>
+                            &lt;aside&gt;
+                        </code>
+
+                        <p>
+                            Conteúdo complementar.
+                        </p>
+
                     </article>
 
 
                     <article>
-                        <span class="tag-number">08</span>
-                        <code>&lt;footer&gt;</code>
-                        <p>Rodapé da página ou seção.</p>
+
+                        <span class="tag-number">
+                            08
+                        </span>
+
+                        <code>
+                            &lt;footer&gt;
+                        </code>
+
+                        <p>
+                            Rodapé da página ou seção.
+                        </p>
+
                     </article>
 
                 </div>
@@ -555,7 +677,7 @@
                     </h2>
 
                     <p>
-                        Escolha uma tag para descobrir sua função e visualizar um exemplo.
+                        Escolha um elemento para visualizar sua função e um exemplo.
                     </p>
 
                 </div>
@@ -658,6 +780,7 @@
 
                                 <span>
                                     <i class="fa-brands fa-html5"></i>
+
                                     Exemplo HTML
                                 </span>
 
@@ -667,6 +790,7 @@
                                     class="copy-button"
                                 >
                                     <i class="fa-regular fa-copy"></i>
+
                                     Copiar
                                 </button>
 
@@ -688,9 +812,250 @@
         </section>
 
 
-        <!-- EXEMPLO DE CÓDIGO -->
+        <!-- PLAYGROUND -->
 
-        <section class="section section-alt">
+        <section
+            class="section section-alt"
+            id="playground"
+        >
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        PLAYGROUND
+                    </span>
+
+                    <h2>
+                        Escreva. Visualize. Analise.
+                    </h2>
+
+                    <p>
+                        Edite HTML e veja o resultado em tempo real.
+                        O Semantic.dev também analisa automaticamente
+                        sua estrutura semântica.
+                    </p>
+
+                </div>
+
+
+                <div class="playground-toolbar">
+
+                    <div class="template-control">
+
+                        <label for="template-select">
+                            Template
+                        </label>
+
+                        <select id="template-select">
+
+                            <option value="blog">
+                                Blog semântico
+                            </option>
+
+                            <option value="article">
+                                Artigo
+                            </option>
+
+                            <option value="portfolio">
+                                Portfólio
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="editor-actions">
+
+                        <button
+                            id="reset-playground"
+                            class="tool-button"
+                        >
+                            <i class="fa-solid fa-rotate-left"></i>
+
+                            Restaurar
+                        </button>
+
+
+                        <button
+                            id="copy-playground"
+                            class="tool-button"
+                        >
+                            <i class="fa-regular fa-copy"></i>
+
+                            Copiar
+                        </button>
+
+
+                        <button
+                            id="download-playground"
+                            class="tool-button primary-tool"
+                        >
+                            <i class="fa-solid fa-download"></i>
+
+                            Baixar HTML
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="playground-grid">
+
+                    <section class="editor-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <i class="fa-brands fa-html5"></i>
+
+                                editor.html
+
+                            </div>
+
+
+                            <div class="editor-meta">
+
+                                <span id="editor-lines">
+                                    0 linhas
+                                </span>
+
+                                <span id="editor-characters">
+                                    0 caracteres
+                                </span>
+
+                                <span
+                                    id="save-status"
+                                    class="save-status"
+                                >
+                                    <i class="fa-solid fa-cloud"></i>
+
+                                    Salvo
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <textarea
+                            id="html-editor"
+                            spellcheck="false"
+                            aria-label="Editor HTML"
+                        ></textarea>
+
+
+                        <div class="editor-shortcut">
+
+                            <i class="fa-regular fa-keyboard"></i>
+
+                            Ctrl + Enter atualiza o preview imediatamente
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="preview-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <i class="fa-solid fa-eye"></i>
+
+                                Preview
+
+                            </div>
+
+
+                            <span class="live-indicator">
+
+                                <span></span>
+
+                                LIVE
+
+                            </span>
+
+                        </div>
+
+
+                        <iframe
+                            id="html-preview"
+                            title="Preview do código HTML"
+                            sandbox=""
+                        ></iframe>
+
+                    </section>
+
+                </div>
+
+
+                <!-- ANALISADOR -->
+
+                <div class="semantic-analyzer">
+
+                    <div class="analyzer-score">
+
+                        <div
+                            id="score-ring"
+                            class="score-ring"
+                        >
+
+                            <div>
+
+                                <strong id="semantic-score">
+                                    0
+                                </strong>
+
+                                <span>
+                                    /100
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="analyzer-label">
+                                SEMANTIC SCORE
+                            </span>
+
+                            <h3 id="semantic-level">
+                                Analisando...
+                            </h3>
+
+                            <p>
+                                Pontuação baseada em elementos
+                                semânticos e boas práticas básicas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="semantic-checks"
+                        class="semantic-checks"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXEMPLO COMPLETO -->
+
+        <section class="section">
 
             <div class="container">
 
@@ -703,10 +1068,6 @@
                     <h2>
                         Tudo trabalhando junto
                     </h2>
-
-                    <p>
-                        Uma estrutura semântica simples e organizada.
-                    </p>
 
                 </div>
 
@@ -734,6 +1095,7 @@
                             class="copy-button"
                         >
                             <i class="fa-regular fa-copy"></i>
+
                             Copiar
                         </button>
 
@@ -806,7 +1168,7 @@
         <!-- QUIZ -->
 
         <section
-            class="section"
+            class="section section-alt"
             id="quiz"
         >
 
@@ -823,15 +1185,14 @@
                     </h2>
 
                     <p>
-                        As perguntas aparecem em ordem aleatória.
-                        Sua melhor pontuação fica salva no navegador.
+                        As perguntas aparecem em ordem aleatória
+                        e seu recorde fica salvo.
                     </p>
 
                 </div>
 
 
                 <div class="quiz-shell">
-
 
                     <div class="quiz-dashboard">
 
@@ -843,6 +1204,7 @@
                             >
                                 Pergunta 1 de 8
                             </span>
+
 
                             <strong id="quiz-score">
                                 0 pontos
@@ -911,7 +1273,9 @@
                     >
 
                         <div class="result-icon">
+
                             <i class="fa-solid fa-trophy"></i>
+
                         </div>
 
 
@@ -970,8 +1334,6 @@
     </main>
 
 
-    <!-- FOOTER -->
-
     <footer class="footer">
 
         <div class="container footer-content">
@@ -986,8 +1348,8 @@
                 </a>
 
                 <p>
-                    Projeto de estudo desenvolvido com HTML,
-                    CSS e JavaScript puro.
+                    Projeto educacional desenvolvido com
+                    HTML, CSS e JavaScript puro.
                 </p>
 
             </div>
@@ -1010,6 +1372,11 @@
                     JavaScript
                 </span>
 
+                <span>
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    PWA
+                </span>
+
             </div>
 
 
@@ -1021,8 +1388,6 @@
 
     </footer>
 
-
-    <!-- VOLTAR AO TOPO -->
 
     <button
         id="back-to-top"

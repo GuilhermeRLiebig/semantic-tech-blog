@@ -23,9 +23,12 @@ const backToTop =
 const pageProgress =
     document.getElementById("page-progress");
 
+const installButton =
+    document.getElementById("install-app");
+
 
 /* =========================
-   ANO AUTOMÁTICO
+   ANO
 ========================= */
 
 document.getElementById(
@@ -40,7 +43,6 @@ document.getElementById(
 
 const savedTheme =
     localStorage.getItem("theme");
-
 
 const prefersLight =
     window.matchMedia(
@@ -107,7 +109,7 @@ themeButton.addEventListener(
 
 
 /* =========================
-   MENU MOBILE
+   MENU
 ========================= */
 
 menuButton.addEventListener(
@@ -186,19 +188,10 @@ function updateScroll() {
         window.scrollY;
 
 
-    if (scrollTop > 500) {
-
-        backToTop.classList.add(
-            "visible"
-        );
-
-    } else {
-
-        backToTop.classList.remove(
-            "visible"
-        );
-
-    }
+    backToTop.classList.toggle(
+        "visible",
+        scrollTop > 500
+    );
 
 
     const pageHeight =
@@ -247,7 +240,7 @@ backToTop.addEventListener(
 
 
 /* =========================
-   NAVEGAÇÃO ATIVA
+   NAV ATIVA
 ========================= */
 
 const sections =
@@ -270,33 +263,31 @@ const sectionObserver =
             entries.forEach(entry => {
 
                 if (
-                    entry.isIntersecting
+                    !entry.isIntersecting
                 ) {
+                    return;
+                }
 
-                    navLinks.forEach(
-                        link => {
 
-                            link.classList.remove(
-                                "active"
-                            );
+                navLinks.forEach(
+                    link =>
+                        link.classList.remove(
+                            "active"
+                        )
+                );
 
-                        }
+
+                const activeLink =
+                    document.querySelector(
+                        `.nav a[href="#${entry.target.id}"]`
                     );
 
 
-                    const active =
-                        document.querySelector(
-                            `.nav a[href="#${entry.target.id}"]`
-                        );
+                if (activeLink) {
 
-
-                    if (active) {
-
-                        active.classList.add(
-                            "active"
-                        );
-
-                    }
+                    activeLink.classList.add(
+                        "active"
+                    );
 
                 }
 
@@ -321,23 +312,20 @@ sections.forEach(
 
 
 /* =========================
-   REVEAL
+   ANIMAÇÕES
 ========================= */
 
 const revealElements =
     document.querySelectorAll(
-        ".content-card, .card, .semantic-figure, .tag-grid article, .tag-explorer, .code-project, .quiz-shell"
+        ".content-card, .card, .semantic-figure, .tag-grid article, .tag-explorer, .playground-grid, .semantic-analyzer, .code-project, .quiz-shell"
     );
 
 
 revealElements.forEach(
-    element => {
-
+    element =>
         element.classList.add(
             "reveal"
-        );
-
-    }
+        )
 );
 
 
@@ -383,58 +371,44 @@ revealElements.forEach(
 
 
 /* =========================
-   DADOS DO EXPLORADOR
+   EXPLORADOR
 ========================= */
 
 const tagData = {
 
     header: {
-
         title: "<header>",
-
         description:
             "Representa o cabeçalho de uma página ou de uma seção.",
-
         usage:
             "É adequado para títulos, logotipos, introduções e outros elementos que apresentam aquela área.",
-
         example:
 `<header>
     <h1>Meu site</h1>
 </header>`
-
     },
 
 
     nav: {
-
         title: "<nav>",
-
         description:
             "Representa uma região contendo links de navegação.",
-
         usage:
             "É utilizada principalmente para menus e conjuntos importantes de links.",
-
         example:
 `<nav>
     <a href="#inicio">Início</a>
     <a href="#sobre">Sobre</a>
 </nav>`
-
     },
 
 
     main: {
-
         title: "<main>",
-
         description:
             "Representa o conteúdo principal do documento.",
-
         usage:
             "Deve conter aquilo que está diretamente relacionado ao objetivo central da página.",
-
         example:
 `<main>
     <h1>Conteúdo principal</h1>
@@ -443,20 +417,15 @@ const tagData = {
         Conteúdo da página.
     </p>
 </main>`
-
     },
 
 
     article: {
-
         title: "<article>",
-
         description:
             "Representa um conteúdo independente que pode fazer sentido mesmo isoladamente.",
-
         usage:
             "É indicado para posts, notícias, artigos, comentários e publicações.",
-
         example:
 `<article>
     <h2>Minha publicação</h2>
@@ -465,20 +434,15 @@ const tagData = {
         Conteúdo do artigo.
     </p>
 </article>`
-
     },
 
 
     section: {
-
         title: "<section>",
-
         description:
             "Representa uma seção temática dentro do documento.",
-
         usage:
             "É útil para agrupar conteúdos relacionados que formam uma parte específica da página.",
-
         example:
 `<section>
     <h2>Benefícios</h2>
@@ -487,20 +451,15 @@ const tagData = {
         Conteúdo da seção.
     </p>
 </section>`
-
     },
 
 
     figure: {
-
         title: "<figure>",
-
         description:
             "Agrupa conteúdo ilustrativo relacionado ao conteúdo principal.",
-
         usage:
             "Pode representar imagens, diagramas, gráficos ou códigos e geralmente pode receber uma legenda.",
-
         example:
 `<figure>
 
@@ -514,20 +473,15 @@ const tagData = {
     </figcaption>
 
 </figure>`
-
     },
 
 
     aside: {
-
         title: "<aside>",
-
         description:
             "Representa conteúdo complementar ao conteúdo principal.",
-
         usage:
             "Pode ser utilizado para informações adicionais, barras laterais, curiosidades ou conteúdos relacionados.",
-
         example:
 `<aside>
     <h3>Veja também</h3>
@@ -536,35 +490,25 @@ const tagData = {
         Conteúdo complementar.
     </p>
 </aside>`
-
     },
 
 
     footer: {
-
         title: "<footer>",
-
         description:
             "Representa o rodapé de uma página ou seção.",
-
         usage:
             "Normalmente apresenta autoria, copyright, contato ou outros links relacionados.",
-
         example:
 `<footer>
     <p>
         © 2026 Meu Site
     </p>
 </footer>`
-
     }
 
 };
 
-
-/* =========================
-   EXPLORADOR
-========================= */
 
 const tagButtons =
     document.querySelectorAll(
@@ -636,7 +580,7 @@ tagButtons.forEach(button => {
 
 
 /* =========================
-   COPIAR TEXTO
+   COPIAR
 ========================= */
 
 async function copyText(text) {
@@ -682,9 +626,27 @@ async function copyText(text) {
 }
 
 
-/* =========================
-   COPIAR CÓDIGOS
-========================= */
+async function temporaryButtonMessage(
+    button,
+    message
+) {
+
+    const original =
+        button.innerHTML;
+
+
+    button.innerHTML = message;
+
+
+    setTimeout(
+        () => {
+            button.innerHTML = original;
+        },
+        1400
+    );
+
+}
+
 
 const copyTagButton =
     document.getElementById(
@@ -701,22 +663,9 @@ copyTagButton.addEventListener(
         );
 
 
-        const original =
-            copyTagButton.innerHTML;
-
-
-        copyTagButton.innerHTML =
-            '<i class="fa-solid fa-check"></i> Copiado';
-
-
-        setTimeout(
-            () => {
-
-                copyTagButton.innerHTML =
-                    original;
-
-            },
-            1400
+        temporaryButtonMessage(
+            copyTagButton,
+            '<i class="fa-solid fa-check"></i> Copiado'
         );
 
     }
@@ -727,6 +676,7 @@ const copyMainButton =
     document.getElementById(
         "copy-main-code"
     );
+
 
 const mainCode =
     document.getElementById(
@@ -743,26 +693,771 @@ copyMainButton.addEventListener(
         );
 
 
-        const original =
-            copyMainButton.innerHTML;
-
-
-        copyMainButton.innerHTML =
-            '<i class="fa-solid fa-check"></i> Copiado';
-
-
-        setTimeout(
-            () => {
-
-                copyMainButton.innerHTML =
-                    original;
-
-            },
-            1400
+        temporaryButtonMessage(
+            copyMainButton,
+            '<i class="fa-solid fa-check"></i> Copiado'
         );
 
     }
 );
+
+
+/* =========================
+   PLAYGROUND TEMPLATES
+========================= */
+
+const playgroundTemplates = {
+
+    blog:
+`<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Blog</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Blog de Tecnologia</h1>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#artigo">Artigo</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <article id="artigo">
+
+            <header>
+                <h2>HTML Semântico</h2>
+            </header>
+
+            <section>
+
+                <p>
+                    HTML semântico ajuda a organizar
+                    e dar significado ao conteúdo.
+                </p>
+
+                <figure>
+
+                    <img
+                        src="https://via.placeholder.com/400x180"
+                        alt="Exemplo ilustrativo de desenvolvimento web"
+                    >
+
+                    <figcaption>
+                        Exemplo de conteúdo ilustrativo.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+        </article>
+
+        <aside>
+            Conteúdo complementar.
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>© Meu Blog</p>
+    </footer>
+
+</body>
+
+</html>`,
+
+
+    article:
+`<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Artigo</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Dev Journal</h1>
+    </header>
+
+    <main>
+
+        <article>
+
+            <header>
+                <h2>Por que aprender HTML?</h2>
+            </header>
+
+            <section>
+
+                <p>
+                    HTML é a base estrutural da Web.
+                </p>
+
+            </section>
+
+            <section>
+
+                <h2>Conclusão</h2>
+
+                <p>
+                    Uma boa estrutura melhora
+                    acessibilidade e manutenção.
+                </p>
+
+            </section>
+
+        </article>
+
+    </main>
+
+    <footer>
+        <p>Publicado por Guilherme</p>
+    </footer>
+
+</body>
+
+</html>`,
+
+
+    portfolio:
+`<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Portfólio</title>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Guilherme</h1>
+
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section id="sobre">
+
+            <h2>Sobre mim</h2>
+
+            <p>
+                Estudante de Ciência da Computação.
+            </p>
+
+        </section>
+
+        <section id="projetos">
+
+            <h2>Projetos</h2>
+
+            <article>
+
+                <h3>Semantic.dev</h3>
+
+                <p>
+                    Plataforma interativa para
+                    estudar HTML semântico.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Meu Portfólio</p>
+    </footer>
+
+</body>
+
+</html>`
+
+};
+
+
+/* =========================
+   PLAYGROUND
+========================= */
+
+const htmlEditor =
+    document.getElementById(
+        "html-editor"
+    );
+
+const htmlPreview =
+    document.getElementById(
+        "html-preview"
+    );
+
+const templateSelect =
+    document.getElementById(
+        "template-select"
+    );
+
+const resetPlaygroundButton =
+    document.getElementById(
+        "reset-playground"
+    );
+
+const copyPlaygroundButton =
+    document.getElementById(
+        "copy-playground"
+    );
+
+const downloadPlaygroundButton =
+    document.getElementById(
+        "download-playground"
+    );
+
+const editorLines =
+    document.getElementById(
+        "editor-lines"
+    );
+
+const editorCharacters =
+    document.getElementById(
+        "editor-characters"
+    );
+
+const saveStatus =
+    document.getElementById(
+        "save-status"
+    );
+
+const scoreRing =
+    document.getElementById(
+        "score-ring"
+    );
+
+const semanticScore =
+    document.getElementById(
+        "semantic-score"
+    );
+
+const semanticLevel =
+    document.getElementById(
+        "semantic-level"
+    );
+
+const semanticChecks =
+    document.getElementById(
+        "semantic-checks"
+    );
+
+
+const savedPlaygroundCode =
+    localStorage.getItem(
+        "semanticPlaygroundCode"
+    );
+
+
+htmlEditor.value =
+    savedPlaygroundCode ||
+    playgroundTemplates.blog;
+
+
+let playgroundTimeout;
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+function updatePlayground() {
+
+    const code =
+        htmlEditor.value;
+
+
+    htmlPreview.srcdoc =
+        code;
+
+
+    const lines =
+        code.split("\n").length;
+
+
+    editorLines.textContent =
+        `${lines} ${
+            lines === 1
+                ? "linha"
+                : "linhas"
+        }`;
+
+
+    editorCharacters.textContent =
+        `${code.length} caracteres`;
+
+
+    analyzeSemanticHTML(
+        code
+    );
+
+}
+
+
+/* =========================
+   AUTO SAVE
+========================= */
+
+function savePlayground() {
+
+    localStorage.setItem(
+        "semanticPlaygroundCode",
+        htmlEditor.value
+    );
+
+
+    saveStatus.innerHTML =
+        '<i class="fa-solid fa-check"></i> Salvo';
+
+}
+
+
+htmlEditor.addEventListener(
+    "input",
+    () => {
+
+        saveStatus.innerHTML =
+            '<i class="fa-solid fa-spinner"></i> Salvando';
+
+
+        clearTimeout(
+            playgroundTimeout
+        );
+
+
+        playgroundTimeout =
+            setTimeout(
+                () => {
+
+                    savePlayground();
+
+                    updatePlayground();
+
+                },
+                300
+            );
+
+    }
+);
+
+
+/* CTRL + ENTER */
+
+htmlEditor.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter" &&
+            (
+                event.ctrlKey ||
+                event.metaKey
+            )
+        ) {
+
+            event.preventDefault();
+
+            savePlayground();
+
+            updatePlayground();
+
+        }
+
+    }
+);
+
+
+/* TEMPLATE */
+
+templateSelect.addEventListener(
+    "change",
+    () => {
+
+        const template =
+            playgroundTemplates[
+                templateSelect.value
+            ];
+
+
+        htmlEditor.value =
+            template;
+
+
+        savePlayground();
+
+        updatePlayground();
+
+    }
+);
+
+
+/* RESET */
+
+resetPlaygroundButton.addEventListener(
+    "click",
+    () => {
+
+        const template =
+            playgroundTemplates[
+                templateSelect.value
+            ];
+
+
+        htmlEditor.value =
+            template;
+
+
+        savePlayground();
+
+        updatePlayground();
+
+    }
+);
+
+
+/* COPY */
+
+copyPlaygroundButton.addEventListener(
+    "click",
+    async () => {
+
+        await copyText(
+            htmlEditor.value
+        );
+
+
+        temporaryButtonMessage(
+            copyPlaygroundButton,
+            '<i class="fa-solid fa-check"></i> Copiado'
+        );
+
+    }
+);
+
+
+/* DOWNLOAD */
+
+downloadPlaygroundButton.addEventListener(
+    "click",
+    () => {
+
+        const blob =
+            new Blob(
+                [
+                    htmlEditor.value
+                ],
+                {
+                    type:
+                        "text/html;charset=utf-8"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href = url;
+
+        link.download =
+            "semantic-playground.html";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+        link.remove();
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+);
+
+
+/* =========================
+   ANALISADOR SEMÂNTICO
+========================= */
+
+function analyzeSemanticHTML(code) {
+
+    const parser =
+        new DOMParser();
+
+
+    const documentResult =
+        parser.parseFromString(
+            code,
+            "text/html"
+        );
+
+
+    const images =
+        [
+            ...documentResult.querySelectorAll(
+                "img"
+            )
+        ];
+
+
+    const checks = [
+
+        {
+            label:
+                "Elemento <main>",
+            points: 15,
+            pass:
+                documentResult.querySelectorAll(
+                    "main"
+                ).length === 1
+        },
+
+        {
+            label:
+                "Elemento <header>",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "header"
+                    )
+                )
+        },
+
+        {
+            label:
+                "Navegação com <nav>",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "nav"
+                    )
+                )
+        },
+
+        {
+            label:
+                "Conteúdo com <article>",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "article"
+                    )
+                )
+        },
+
+        {
+            label:
+                "Seções temáticas",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "section"
+                    )
+                )
+        },
+
+        {
+            label:
+                "<figure> + <figcaption>",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "figure figcaption"
+                    )
+                )
+        },
+
+        {
+            label:
+                "Rodapé com <footer>",
+            points: 10,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "footer"
+                    )
+                )
+        },
+
+        {
+            label:
+                "Imagens com texto alternativo",
+            points: 10,
+            pass:
+                images.length > 0 &&
+                images.every(
+                    image =>
+                        image.hasAttribute(
+                            "alt"
+                        ) &&
+                        image.getAttribute(
+                            "alt"
+                        ).trim() !== ""
+                )
+        },
+
+        {
+            label:
+                "Um título principal <h1>",
+            points: 10,
+            pass:
+                documentResult.querySelectorAll(
+                    "h1"
+                ).length === 1
+        },
+
+        {
+            label:
+                "Conteúdo complementar <aside>",
+            points: 5,
+            pass:
+                Boolean(
+                    documentResult.querySelector(
+                        "aside"
+                    )
+                )
+        }
+
+    ];
+
+
+    const score =
+        checks.reduce(
+            (
+                total,
+                check
+            ) =>
+                total +
+                (
+                    check.pass
+                        ? check.points
+                        : 0
+                ),
+            0
+        );
+
+
+    semanticScore.textContent =
+        score;
+
+
+    scoreRing.style.setProperty(
+        "--score-angle",
+        `${score * 3.6}deg`
+    );
+
+
+    if (score >= 90) {
+
+        semanticLevel.textContent =
+            "Excelente estrutura";
+
+    } else if (
+        score >= 70
+    ) {
+
+        semanticLevel.textContent =
+            "Boa estrutura";
+
+    } else if (
+        score >= 50
+    ) {
+
+        semanticLevel.textContent =
+            "Pode melhorar";
+
+    } else {
+
+        semanticLevel.textContent =
+            "Estrutura básica";
+
+    }
+
+
+    semanticChecks.innerHTML =
+        "";
+
+
+    checks.forEach(check => {
+
+        const item =
+            document.createElement(
+                "div"
+            );
+
+
+        item.className =
+            `semantic-check ${
+                check.pass
+                    ? "pass"
+                    : "fail"
+            }`;
+
+
+        item.innerHTML =
+            `
+                <i class="fa-solid ${
+                    check.pass
+                        ? "fa-circle-check"
+                        : "fa-circle-xmark"
+                }"></i>
+
+                <span>
+                    ${escapeHTML(
+                        check.label
+                    )}
+                    (+${check.points})
+                </span>
+            `;
+
+
+        semanticChecks.appendChild(
+            item
+        );
+
+    });
+
+}
 
 
 /* =========================
@@ -772,7 +1467,6 @@ copyMainButton.addEventListener(
 const quizQuestions = [
 
     {
-
         question:
             "Qual elemento deve representar o conteúdo principal de uma página?",
 
@@ -787,12 +1481,10 @@ const quizQuestions = [
 
         explanation:
             "<main> representa o conteúdo central e principal do documento."
-
     },
 
 
     {
-
         question:
             "Qual tag é mais adequada para uma publicação de blog que pode fazer sentido isoladamente?",
 
@@ -807,12 +1499,10 @@ const quizQuestions = [
 
         explanation:
             "<article> representa conteúdo independente, como notícias, posts ou publicações."
-
     },
 
 
     {
-
         question:
             "Qual elemento é destinado principalmente a conjuntos de links de navegação?",
 
@@ -827,12 +1517,10 @@ const quizQuestions = [
 
         explanation:
             "<nav> representa uma região contendo os principais links de navegação."
-
     },
 
 
     {
-
         question:
             "Qual é a principal diferença entre <img> e <figure>?",
 
@@ -847,12 +1535,10 @@ const quizQuestions = [
 
         explanation:
             "<img> é o elemento da imagem. <figure> pode agrupar a imagem e outros elementos, como <figcaption>."
-
     },
 
 
     {
-
         question:
             "Qual elemento representa conteúdo complementar ao conteúdo principal?",
 
@@ -867,12 +1553,10 @@ const quizQuestions = [
 
         explanation:
             "<aside> representa conteúdo complementar, como informações relacionadas ou uma barra lateral."
-
     },
 
 
     {
-
         question:
             "Qual elemento pode ser utilizado para dar uma legenda a uma <figure>?",
 
@@ -887,12 +1571,10 @@ const quizQuestions = [
 
         explanation:
             "<figcaption> fornece uma legenda associada ao conteúdo de uma <figure>."
-
     },
 
 
     {
-
         question:
             "Uma vantagem do HTML semântico para acessibilidade é:",
 
@@ -907,12 +1589,10 @@ const quizQuestions = [
 
         explanation:
             "Elementos semânticos ajudam tecnologias assistivas a identificar corretamente as diferentes regiões da página."
-
     },
 
 
     {
-
         question:
             "Qual afirmação sobre <section> e <article> está correta?",
 
@@ -927,15 +1607,10 @@ const quizQuestions = [
 
         explanation:
             "<article> representa conteúdo independente. <section> organiza uma parte temática do documento."
-
     }
 
 ];
 
-
-/* =========================
-   ELEMENTOS DO QUIZ
-========================= */
 
 const quizCounter =
     document.getElementById(
@@ -1015,34 +1690,46 @@ let answered = false;
 
 
 /* =========================
-   EMBARALHAR
+   HELPERS
 ========================= */
+
+function escapeHTML(text) {
+
+    return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;");
+
+}
+
 
 function shuffle(array) {
 
-    const copy = [...array];
+    const copy =
+        [...array];
 
 
     for (
-        let i = copy.length - 1;
-        i > 0;
-        i--
+        let index =
+            copy.length - 1;
+        index > 0;
+        index--
     ) {
 
-        const random =
+        const randomIndex =
             Math.floor(
                 Math.random() *
-                (i + 1)
+                (index + 1)
             );
 
 
         [
-            copy[i],
-            copy[random]
+            copy[index],
+            copy[randomIndex]
         ] =
         [
-            copy[random],
-            copy[i]
+            copy[randomIndex],
+            copy[index]
         ];
 
     }
@@ -1054,7 +1741,7 @@ function shuffle(array) {
 
 
 /* =========================
-   INICIAR QUIZ
+   QUIZ START
 ========================= */
 
 function startQuiz() {
@@ -1087,7 +1774,7 @@ function startQuiz() {
 
 
 /* =========================
-   MOSTRAR PERGUNTA
+   RENDER QUESTION
 ========================= */
 
 function renderQuestion() {
@@ -1141,7 +1828,10 @@ function renderQuestion() {
 
 
     question.options.forEach(
-        (option, index) => {
+        (
+            option,
+            index
+        ) => {
 
             const button =
                 document.createElement(
@@ -1186,21 +1876,7 @@ function renderQuestion() {
 
 
 /* =========================
-   ESCAPAR HTML
-========================= */
-
-function escapeHTML(text) {
-
-    return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;");
-
-}
-
-
-/* =========================
-   ESCOLHER RESPOSTA
+   SELECT ANSWER
 ========================= */
 
 function selectAnswer(
@@ -1230,9 +1906,7 @@ function selectAnswer(
 
     optionButtons.forEach(
         button => {
-
             button.disabled = true;
-
         }
     );
 
@@ -1353,7 +2027,7 @@ function selectAnswer(
 
 
 /* =========================
-   PRÓXIMA QUESTÃO
+   NEXT
 ========================= */
 
 nextQuestionButton.addEventListener(
@@ -1380,7 +2054,7 @@ nextQuestionButton.addEventListener(
 
 
 /* =========================
-   FINALIZAR QUIZ
+   FINISH
 ========================= */
 
 function finishQuiz() {
@@ -1413,7 +2087,7 @@ function finishQuiz() {
             "Perfeito!";
 
         resultMessage.textContent =
-            "Você acertou todas as questões. Seu domínio dos conceitos básicos de HTML semântico está excelente.";
+            "Você acertou todas as questões. Seu domínio dos fundamentos de HTML semântico está excelente.";
 
     } else if (
         percentage >= 75
@@ -1423,7 +2097,7 @@ function finishQuiz() {
             "Muito bom!";
 
         resultMessage.textContent =
-            "Você demonstrou uma boa compreensão de HTML semântico. Mais uma revisão e você chega aos 100%.";
+            "Você demonstrou uma boa compreensão de HTML semântico.";
 
     } else if (
         percentage >= 50
@@ -1433,7 +2107,7 @@ function finishQuiz() {
             "Bom começo!";
 
         resultMessage.textContent =
-            "Você já compreendeu vários conceitos, mas vale revisar o explorador de tags antes de tentar novamente.";
+            "Você já compreendeu vários conceitos, mas ainda existem alguns pontos para revisar.";
 
     } else {
 
@@ -1441,7 +2115,7 @@ function finishQuiz() {
             "Hora de revisar!";
 
         resultMessage.textContent =
-            "Volte às seções do projeto, explore as tags e tente novamente. O quiz embaralha as perguntas a cada tentativa.";
+            "Explore novamente as tags e utilize o Playground antes de tentar outra vez.";
 
     }
 
@@ -1473,19 +2147,11 @@ function finishQuiz() {
 }
 
 
-/* =========================
-   REINICIAR QUIZ
-========================= */
-
 restartQuizButton.addEventListener(
     "click",
     startQuiz
 );
 
-
-/* =========================
-   MELHOR RESULTADO INICIAL
-========================= */
 
 const initialBest =
     Number(
@@ -1500,7 +2166,110 @@ bestScoreElement.textContent =
 
 
 /* =========================
-   INICIAR
+   PWA
 ========================= */
+
+let deferredInstallPrompt = null;
+
+
+window.addEventListener(
+    "beforeinstallprompt",
+    event => {
+
+        event.preventDefault();
+
+        deferredInstallPrompt =
+            event;
+
+
+        installButton.hidden =
+            false;
+
+    }
+);
+
+
+installButton.addEventListener(
+    "click",
+    async () => {
+
+        if (
+            !deferredInstallPrompt
+        ) {
+            return;
+        }
+
+
+        deferredInstallPrompt.prompt();
+
+
+        await deferredInstallPrompt
+            .userChoice;
+
+
+        deferredInstallPrompt =
+            null;
+
+
+        installButton.hidden =
+            true;
+
+    }
+);
+
+
+window.addEventListener(
+    "appinstalled",
+    () => {
+
+        installButton.hidden =
+            true;
+
+        deferredInstallPrompt =
+            null;
+
+    }
+);
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if (
+    "serviceWorker" in navigator
+) {
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            navigator
+                .serviceWorker
+                .register(
+                    "./sw.js"
+                )
+                .catch(
+                    error => {
+
+                        console.error(
+                            "Service Worker:",
+                            error
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+updatePlayground();
 
 startQuiz();
