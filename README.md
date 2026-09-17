@@ -1,22 +1,53 @@
 # Semantic.dev
 
-Uma plataforma educacional interativa criada para estudar **HTML Semântico** através de explicações, exemplos, visualizações e desafios práticos.
+Plataforma educacional interativa desenvolvida para estudar **HTML Semântico**, acessibilidade e fundamentos de desenvolvimento Front-End.
 
-O projeto surgiu inicialmente a partir de uma atividade acadêmica simples sobre tags semânticas e foi posteriormente expandido como objeto de estudo de desenvolvimento Front-End.
+O projeto surgiu inicialmente a partir de uma atividade acadêmica sobre estrutura semântica em HTML e posteriormente foi expandido como objeto de estudo utilizando HTML, CSS, JavaScript, Git e GitHub.
 
----
+## 🌐 Demo
 
-## Sobre o projeto
+Acesse o projeto online:
 
-O objetivo do Semantic.dev é transformar o estudo de HTML semântico em uma experiência mais visual e interativa.
-
-Além de apresentar conceitos teóricos, o projeto permite explorar tags individualmente, visualizar exemplos de código e testar o conhecimento através de um quiz.
-
-O projeto foi construído utilizando apenas tecnologias nativas da Web, sem frameworks.
+**https://guilhermerliebig.github.io/semantic-tech-blog/**
 
 ---
 
-## Tecnologias
+## 📖 Sobre o projeto
+
+O **Semantic.dev** apresenta conceitos de HTML semântico de forma visual e interativa.
+
+Além do conteúdo teórico, o projeto possui exemplos práticos, explorador de tags, código copiável e um quiz para testar os conhecimentos adquiridos.
+
+O projeto foi desenvolvido sem frameworks, utilizando apenas tecnologias nativas da Web.
+
+---
+
+## ✨ Funcionalidades
+
+- Layout moderno e responsivo
+- Tema claro e escuro
+- Preferência de tema salva no navegador
+- Menu responsivo para dispositivos móveis
+- Navegação suave entre seções
+- Barra de progresso de leitura
+- Destaque da seção atual no menu
+- Botão para voltar ao topo
+- Cards informativos
+- Explorador interativo de tags semânticas
+- Exemplos de código HTML
+- Botões para copiar código
+- Quiz interativo sobre HTML semântico
+- Perguntas em ordem aleatória
+- Feedback para respostas corretas e incorretas
+- Sistema de pontuação
+- Melhor pontuação salva no navegador
+- Barra de progresso do quiz
+- Animações durante a navegação
+- Recursos básicos de acessibilidade
+
+---
+
+## 🛠️ Tecnologias utilizadas
 
 - HTML5
 - CSS3
@@ -24,52 +55,27 @@ O projeto foi construído utilizando apenas tecnologias nativas da Web, sem fram
 - Font Awesome
 - Git
 - GitHub
+- GitHub Pages
 
 ---
 
-## Funcionalidades
-
-- Layout moderno e responsivo
-- HTML semântico
-- Modo claro e escuro
-- Tema salvo através de LocalStorage
-- Menu responsivo para dispositivos móveis
-- Navegação suave entre seções
-- Destaque automático da seção atual no menu
-- Barra de progresso de leitura
-- Botão para voltar ao topo
-- Explorador interativo de tags HTML
-- Exemplos de código
-- Botões para copiar código
-- Quiz interativo
-- Perguntas embaralhadas
-- Feedback após cada resposta
-- Explicações para respostas corretas e incorretas
-- Sistema de pontuação
-- Melhor pontuação salva no navegador
-- Barra de progresso do quiz
-- Animações utilizando Intersection Observer
-- Suporte a `prefers-reduced-motion`
-
----
-
-## Conceitos estudados
+## 🧠 Conceitos estudados
 
 ### HTML
 
 - HTML Semântico
-- `header`
-- `nav`
-- `main`
-- `article`
-- `section`
-- `figure`
-- `figcaption`
-- `aside`
-- `footer`
+- `<header>`
+- `<nav>`
+- `<main>`
+- `<article>`
+- `<section>`
+- `<figure>`
+- `<figcaption>`
+- `<aside>`
+- `<footer>`
+- Meta tags
+- Atributos ARIA
 - Acessibilidade
-- atributos `aria`
-- meta tags
 
 ### CSS
 
@@ -78,13 +84,12 @@ O projeto foi construído utilizando apenas tecnologias nativas da Web, sem fram
 - CSS Grid
 - Media Queries
 - Responsividade
-- Transições
 - Pseudo-elementos
-- estados `hover`
-- estados `focus`
-- temas claro e escuro
-- `backdrop-filter`
+- Estados `hover` e `focus`
+- Transições
+- Tema claro e escuro
 - `clamp()`
+- `backdrop-filter`
 - `prefers-reduced-motion`
 
 ### JavaScript
@@ -98,24 +103,132 @@ O projeto foi construído utilizando apenas tecnologias nativas da Web, sem fram
 - LocalStorage
 - Clipboard API
 - Intersection Observer
-- criação dinâmica de elementos
-- embaralhamento de arrays
-- controle de estado
-- sistema de pontuação
+- Criação dinâmica de elementos
+- Controle de estado
+- Embaralhamento de perguntas
+- Sistema de pontuação
 
 ---
 
-## Estrutura
+## 🗂️ Estrutura do projeto
 
 ```text
 atividade-html/
 ├── css/
 │   └── style.css
+│
 ├── docs/
 │   └── atividade-original.html
+│
 ├── img/
 │   └── html-semantico.jpg
+│
 ├── js/
 │   └── script.js
+│
 ├── index.html
 └── README.md
+```
+
+---
+
+## 🎓 Origem do projeto
+
+A primeira versão foi criada como uma atividade acadêmica sobre HTML Semântico.
+
+A atividade original utilizava uma estrutura simples contendo elementos como:
+
+```html
+<header>
+    <h1>Meu Blog de Tecnologia</h1>
+</header>
+
+<main>
+
+    <article>
+
+        <h2>O que é HTML Semântico?</h2>
+
+        <figure>
+            ...
+        </figure>
+
+    </article>
+
+</main>
+
+<footer>
+    ...
+</footer>
+```
+
+Essa versão foi preservada em:
+
+```text
+docs/atividade-original.html
+```
+
+A partir dela, o projeto foi progressivamente expandido para explorar conceitos de desenvolvimento Front-End.
+
+---
+
+## 🎯 Objetivo
+
+O objetivo principal deste projeto é aprofundar os fundamentos da plataforma Web antes da utilização de bibliotecas e frameworks.
+
+A proposta foi transformar uma atividade simples em um projeto completo de estudo, explorando:
+
+```text
+HTML
+  ↓
+CSS
+  ↓
+JavaScript
+  ↓
+Responsividade
+  ↓
+Acessibilidade
+  ↓
+Git
+  ↓
+GitHub
+  ↓
+Deploy
+```
+
+---
+
+## 🚀 Executando localmente
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/GuilhermeRLiebig/semantic-tech-blog.git
+```
+
+Entre na pasta:
+
+```bash
+cd semantic-tech-blog
+```
+
+Depois abra o `index.html` utilizando o **Live Server** no Visual Studio Code.
+
+---
+
+## 🌍 Deploy
+
+O projeto está hospedado gratuitamente utilizando **GitHub Pages**.
+
+🔗 **https://guilhermerliebig.github.io/semantic-tech-blog/**
+
+---
+
+## 👨‍💻 Autor
+
+**Guilherme Liebig**
+
+Estudante de Ciência da Computação.
+
+GitHub:  
+**GuilhermeRLiebig**
