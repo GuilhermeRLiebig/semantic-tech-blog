@@ -11,15 +11,12 @@
 
     <meta
         name="description"
-        content="Projeto educacional interativo sobre HTML semântico, acessibilidade, SEO e desenvolvimento web."
+        content="Plataforma interativa para estudar HTML semântico, acessibilidade, SEO e desenvolvimento web."
     >
 
-    <title>Semantic Tech Blog</title>
+    <title>Semantic.dev | Aprenda HTML Semântico</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    <link rel="stylesheet" href="css/style.css">
 
     <link
         rel="stylesheet"
@@ -28,6 +25,14 @@
 </head>
 
 <body>
+
+    <!-- PROGRESSO DE LEITURA -->
+
+    <div
+        id="page-progress"
+        class="page-progress"
+    ></div>
+
 
     <!-- HEADER -->
 
@@ -54,15 +59,11 @@
                 </a>
 
                 <a href="#semantica">
-                    Semântica
+                    Conceito
                 </a>
 
                 <a href="#beneficios">
                     Benefícios
-                </a>
-
-                <a href="#estrutura">
-                    Estrutura
                 </a>
 
                 <a href="#tags">
@@ -73,6 +74,10 @@
                     Explorador
                 </a>
 
+                <a href="#quiz">
+                    Quiz
+                </a>
+
             </nav>
 
 
@@ -81,7 +86,8 @@
                 <button
                     id="theme-toggle"
                     class="icon-button"
-                    aria-label="Alternar entre tema claro e escuro"
+                    aria-label="Alternar tema"
+                    title="Alternar tema"
                 >
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -90,7 +96,7 @@
                 <button
                     id="menu-toggle"
                     class="icon-button menu-button"
-                    aria-label="Abrir menu de navegação"
+                    aria-label="Abrir menu"
                 >
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -102,7 +108,7 @@
     </header>
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- CONTEÚDO -->
 
     <main>
 
@@ -118,19 +124,22 @@
 
                 <div class="hero-text">
 
-                    <span class="tag">
-                        HTML • CSS • JavaScript
+                    <span class="eyebrow">
+                        HTML • CSS • JAVASCRIPT
                     </span>
 
+
                     <h1>
-                        Desenvolvendo páginas com
+                        Aprenda HTML com
                         <span>significado.</span>
                     </h1>
 
+
                     <p>
-                        Um projeto educacional criado para estudar
-                        HTML semântico, acessibilidade, SEO e boas
-                        práticas no desenvolvimento web.
+                        Explore HTML semântico através de exemplos,
+                        explicações interativas e desafios práticos.
+                        Um projeto criado para aprender desenvolvimento
+                        web construindo algo de verdade.
                     </p>
 
 
@@ -140,15 +149,40 @@
                             href="#semantica"
                             class="button primary-button"
                         >
-                            Começar a aprender
+                            <i class="fa-solid fa-play"></i>
+
+                            Começar
                         </a>
 
+
                         <a
-                            href="#explorador"
+                            href="#quiz"
                             class="button secondary-button"
                         >
-                            Explorar tags
+                            <i class="fa-solid fa-brain"></i>
+
+                            Fazer o quiz
                         </a>
+
+                    </div>
+
+
+                    <div class="hero-stats">
+
+                        <div>
+                            <strong>8</strong>
+                            <span>Tags exploradas</span>
+                        </div>
+
+                        <div>
+                            <strong>8</strong>
+                            <span>Questões no quiz</span>
+                        </div>
+
+                        <div>
+                            <strong>100%</strong>
+                            <span>Vanilla Web</span>
+                        </div>
 
                     </div>
 
@@ -157,13 +191,18 @@
 
                 <figure class="hero-image">
 
+                    <div class="image-badge">
+                        <i class="fa-brands fa-html5"></i>
+                        HTML5
+                    </div>
+
                     <img
                         src="img/html-semantico.jpg"
-                        alt="Ilustração relacionada ao desenvolvimento com HTML semântico"
+                        alt="Representação relacionada ao desenvolvimento web e HTML semântico"
                     >
 
                     <figcaption>
-                        Estrutura e organização de páginas web.
+                        Estrutura, significado e boas práticas.
                     </figcaption>
 
                 </figure>
@@ -173,7 +212,7 @@
         </section>
 
 
-        <!-- O QUE É HTML SEMÂNTICO -->
+        <!-- CONCEITO -->
 
         <section
             class="section"
@@ -185,7 +224,7 @@
                 <div class="section-title">
 
                     <span>
-                        CONCEITO
+                        FUNDAMENTOS
                     </span>
 
                     <h2>
@@ -193,9 +232,7 @@
                     </h2>
 
                     <p>
-                        HTML não serve apenas para posicionar conteúdo.
-                        Seus elementos também podem descrever o significado
-                        de cada parte da página.
+                        A estrutura de uma página também pode transmitir significado.
                     </p>
 
                 </div>
@@ -203,19 +240,23 @@
 
                 <article class="content-card">
 
-                    <i class="fa-brands fa-html5 content-icon"></i>
+                    <div class="large-icon">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+
 
                     <div>
 
                         <p>
-                            HTML semântico utiliza elementos que indicam
-                            claramente a função do conteúdo dentro de uma página.
+                            HTML semântico é a utilização de elementos que
+                            descrevem claramente a função do conteúdo presente
+                            em uma página.
                         </p>
 
                         <p>
-                            Em vez de utilizar apenas elementos genéricos como
-                            <code>&lt;div&gt;</code>, podemos utilizar elementos
-                            específicos como
+                            Em vez de construir tudo utilizando elementos
+                            genéricos como <code>&lt;div&gt;</code>, podemos
+                            utilizar elementos específicos como
                             <code>&lt;header&gt;</code>,
                             <code>&lt;nav&gt;</code>,
                             <code>&lt;main&gt;</code>,
@@ -224,6 +265,18 @@
                             <code>&lt;figure&gt;</code> e
                             <code>&lt;footer&gt;</code>.
                         </p>
+
+                        <div class="concept-highlight">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                            <p>
+                                A semântica descreve
+                                <strong>o que o conteúdo representa</strong>,
+                                e não apenas sua aparência.
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -246,16 +299,16 @@
                 <div class="section-title">
 
                     <span>
-                        BENEFÍCIOS
+                        POR QUE IMPORTA?
                     </span>
 
                     <h2>
-                        Por que utilizar HTML semântico?
+                        Mais do que organização
                     </h2>
 
                     <p>
-                        Uma boa estrutura melhora tanto a experiência de
-                        desenvolvimento quanto a utilização da página.
+                        Uma estrutura semântica beneficia pessoas,
+                        buscadores e desenvolvedores.
                     </p>
 
                 </div>
@@ -263,13 +316,10 @@
 
                 <div class="cards">
 
-
                     <article class="card">
 
                         <div class="card-icon">
-
                             <i class="fa-solid fa-universal-access"></i>
-
                         </div>
 
                         <h3>
@@ -277,8 +327,8 @@
                         </h3>
 
                         <p>
-                            Facilita a interpretação da página por leitores
-                            de tela e outras tecnologias assistivas.
+                            Tecnologias assistivas conseguem compreender
+                            melhor cada região da página.
                         </p>
 
                     </article>
@@ -287,9 +337,7 @@
                     <article class="card">
 
                         <div class="card-icon">
-
                             <i class="fa-solid fa-magnifying-glass"></i>
-
                         </div>
 
                         <h3>
@@ -297,8 +345,8 @@
                         </h3>
 
                         <p>
-                            Ajuda mecanismos de busca a compreender melhor
-                            a organização e o significado do conteúdo.
+                            Mecanismos de busca interpretam melhor
+                            a hierarquia e o contexto do conteúdo.
                         </p>
 
                     </article>
@@ -307,9 +355,7 @@
                     <article class="card">
 
                         <div class="card-icon">
-
                             <i class="fa-solid fa-code"></i>
-
                         </div>
 
                         <h3>
@@ -317,8 +363,8 @@
                         </h3>
 
                         <p>
-                            Deixa o código mais organizado, legível e
-                            fácil de modificar no futuro.
+                            O código fica mais legível e sua estrutura
+                            se torna mais fácil de compreender.
                         </p>
 
                     </article>
@@ -342,16 +388,15 @@
                 <div class="section-title">
 
                     <span>
-                        ESTRUTURA
+                        VISUALIZAÇÃO
                     </span>
 
                     <h2>
-                        Anatomia de uma página semântica
+                        Anatomia de uma página
                     </h2>
 
                     <p>
-                        Uma página pode ser dividida em regiões que possuem
-                        funções específicas.
+                        Veja uma representação simplificada da organização semântica.
                     </p>
 
                 </div>
@@ -359,7 +404,7 @@
 
                 <figure class="semantic-figure">
 
-                    <div class="semantic-box">
+                    <div class="semantic-box header-box">
                         &lt;header&gt;
                     </div>
 
@@ -368,9 +413,18 @@
 
                         &lt;main&gt;
 
-                        <div class="semantic-box inner">
-                            &lt;article&gt;
+                        <div class="semantic-columns">
+
+                            <div class="semantic-box inner">
+                                &lt;article&gt;
+                            </div>
+
+                            <div class="semantic-box inner">
+                                &lt;aside&gt;
+                            </div>
+
                         </div>
+
 
                         <div class="semantic-box inner">
                             &lt;section&gt;
@@ -379,14 +433,13 @@
                     </div>
 
 
-                    <div class="semantic-box">
+                    <div class="semantic-box footer-box">
                         &lt;footer&gt;
                     </div>
 
 
                     <figcaption>
-                        Exemplo simplificado da estrutura semântica
-                        de uma página HTML.
+                        Uma possível estrutura semântica de uma página HTML.
                     </figcaption>
 
                 </figure>
@@ -396,7 +449,7 @@
         </section>
 
 
-        <!-- PRINCIPAIS TAGS -->
+        <!-- TAGS -->
 
         <section
             class="section section-alt"
@@ -408,17 +461,12 @@
                 <div class="section-title">
 
                     <span>
-                        REFERÊNCIA
+                        REFERÊNCIA RÁPIDA
                     </span>
 
                     <h2>
-                        Principais tags semânticas
+                        Principais elementos
                     </h2>
-
-                    <p>
-                        Algumas das tags mais importantes para organizar
-                        uma página HTML.
-                    </p>
 
                 </div>
 
@@ -426,106 +474,58 @@
                 <div class="tag-grid">
 
                     <article>
-
-                        <code>
-                            &lt;header&gt;
-                        </code>
-
-                        <p>
-                            Cabeçalho da página ou de uma seção.
-                        </p>
-
+                        <span class="tag-number">01</span>
+                        <code>&lt;header&gt;</code>
+                        <p>Cabeçalho da página ou de uma seção.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;nav&gt;
-                        </code>
-
-                        <p>
-                            Área destinada à navegação.
-                        </p>
-
+                        <span class="tag-number">02</span>
+                        <code>&lt;nav&gt;</code>
+                        <p>Região contendo links de navegação.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;main&gt;
-                        </code>
-
-                        <p>
-                            Conteúdo principal da página.
-                        </p>
-
+                        <span class="tag-number">03</span>
+                        <code>&lt;main&gt;</code>
+                        <p>Conteúdo principal do documento.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;article&gt;
-                        </code>
-
-                        <p>
-                            Conteúdo independente e completo.
-                        </p>
-
+                        <span class="tag-number">04</span>
+                        <code>&lt;article&gt;</code>
+                        <p>Conteúdo independente e reutilizável.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;section&gt;
-                        </code>
-
-                        <p>
-                            Agrupa conteúdos relacionados.
-                        </p>
-
+                        <span class="tag-number">05</span>
+                        <code>&lt;section&gt;</code>
+                        <p>Seção temática do conteúdo.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;figure&gt;
-                        </code>
-
-                        <p>
-                            Representa conteúdo ilustrativo.
-                        </p>
-
+                        <span class="tag-number">06</span>
+                        <code>&lt;figure&gt;</code>
+                        <p>Conteúdo ilustrativo relacionado ao texto.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;aside&gt;
-                        </code>
-
-                        <p>
-                            Conteúdo complementar.
-                        </p>
-
+                        <span class="tag-number">07</span>
+                        <code>&lt;aside&gt;</code>
+                        <p>Conteúdo complementar.</p>
                     </article>
 
 
                     <article>
-
-                        <code>
-                            &lt;footer&gt;
-                        </code>
-
-                        <p>
-                            Rodapé da página ou seção.
-                        </p>
-
+                        <span class="tag-number">08</span>
+                        <code>&lt;footer&gt;</code>
+                        <p>Rodapé da página ou seção.</p>
                     </article>
 
                 </div>
@@ -535,7 +535,7 @@
         </section>
 
 
-        <!-- EXPLORADOR INTERATIVO -->
+        <!-- EXPLORADOR -->
 
         <section
             class="section"
@@ -547,23 +547,21 @@
                 <div class="section-title">
 
                     <span>
-                        INTERATIVO
+                        LABORATÓRIO
                     </span>
 
                     <h2>
-                        Explorador de tags semânticas
+                        Explorador de tags
                     </h2>
 
                     <p>
-                        Clique em uma tag para entender sua função
-                        e visualizar um exemplo de utilização.
+                        Escolha uma tag para descobrir sua função e visualizar um exemplo.
                     </p>
 
                 </div>
 
 
                 <div class="tag-explorer">
-
 
                     <div class="tag-selector">
 
@@ -632,9 +630,11 @@
                             TAG SELECIONADA
                         </span>
 
+
                         <h3 id="tag-title">
                             &lt;header&gt;
                         </h3>
+
 
                         <p id="tag-description">
                             Representa o cabeçalho de uma página ou seção.
@@ -645,9 +645,10 @@
                             Quando utilizar?
                         </h4>
 
+
                         <p id="tag-usage">
                             Utilize para títulos, logotipos, introduções
-                            e outros elementos relacionados ao cabeçalho.
+                            e elementos relacionados ao cabeçalho.
                         </p>
 
 
@@ -656,18 +657,17 @@
                             <div class="code-header">
 
                                 <span>
+                                    <i class="fa-brands fa-html5"></i>
                                     Exemplo HTML
                                 </span>
+
 
                                 <button
                                     id="copy-tag-code"
                                     class="copy-button"
                                 >
-
                                     <i class="fa-regular fa-copy"></i>
-
                                     Copiar
-
                                 </button>
 
                             </div>
@@ -688,28 +688,24 @@
         </section>
 
 
-        <!-- EXEMPLO COMPLETO -->
+        <!-- EXEMPLO DE CÓDIGO -->
 
-        <section
-            class="section section-alt"
-            id="exemplo"
-        >
+        <section class="section section-alt">
 
             <div class="container">
 
                 <div class="section-title">
 
                     <span>
-                        NA PRÁTICA
+                        CÓDIGO
                     </span>
 
                     <h2>
-                        Uma página semântica completa
+                        Tudo trabalhando junto
                     </h2>
 
                     <p>
-                        Veja como diferentes elementos semânticos
-                        podem trabalhar juntos.
+                        Uma estrutura semântica simples e organizada.
                     </p>
 
                 </div>
@@ -728,7 +724,7 @@
                         </div>
 
 
-                        <span class="code-file-name">
+                        <span>
                             index.html
                         </span>
 
@@ -737,11 +733,8 @@
                             id="copy-main-code"
                             class="copy-button"
                         >
-
                             <i class="fa-regular fa-copy"></i>
-
-                            Copiar código
-
+                            Copiar
                         </button>
 
                     </div>
@@ -769,7 +762,7 @@
             &lt;section&gt;
 
                 &lt;p&gt;
-                    Conteúdo do artigo.
+                    Conteúdo principal.
                 &lt;/p&gt;
 
             &lt;/section&gt;
@@ -796,12 +789,177 @@
     &lt;footer&gt;
 
         &lt;p&gt;
-            Meu site
+            © Meu Blog
         &lt;/p&gt;
 
     &lt;/footer&gt;
 
 &lt;/body&gt;</code></pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ -->
+
+        <section
+            class="section"
+            id="quiz"
+        >
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        DESAFIO
+                    </span>
+
+                    <h2>
+                        Teste o que você aprendeu
+                    </h2>
+
+                    <p>
+                        As perguntas aparecem em ordem aleatória.
+                        Sua melhor pontuação fica salva no navegador.
+                    </p>
+
+                </div>
+
+
+                <div class="quiz-shell">
+
+
+                    <div class="quiz-dashboard">
+
+                        <div>
+
+                            <span
+                                id="quiz-counter"
+                                class="quiz-counter"
+                            >
+                                Pergunta 1 de 8
+                            </span>
+
+                            <strong id="quiz-score">
+                                0 pontos
+                            </strong>
+
+                        </div>
+
+
+                        <div class="quiz-progress">
+
+                            <div
+                                id="quiz-progress-bar"
+                                class="quiz-progress-bar"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <article
+                        class="quiz-card"
+                        id="quiz-card"
+                    >
+
+                        <span class="quiz-label">
+                            HTML SEMÂNTICO
+                        </span>
+
+
+                        <h3 id="quiz-question">
+                            Carregando pergunta...
+                        </h3>
+
+
+                        <div
+                            id="quiz-options"
+                            class="quiz-options"
+                        ></div>
+
+
+                        <div
+                            id="quiz-feedback"
+                            class="quiz-feedback"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <button
+                            id="next-question"
+                            class="button primary-button quiz-next"
+                            hidden
+                        >
+                            Próxima pergunta
+
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </article>
+
+
+                    <article
+                        class="quiz-result"
+                        id="quiz-result"
+                        hidden
+                    >
+
+                        <div class="result-icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+
+
+                        <span>
+                            QUIZ CONCLUÍDO
+                        </span>
+
+
+                        <h3 id="result-title">
+                            Excelente!
+                        </h3>
+
+
+                        <p
+                            id="result-score"
+                            class="result-score"
+                        ></p>
+
+
+                        <p
+                            id="result-message"
+                            class="result-message"
+                        ></p>
+
+
+                        <div class="best-score-box">
+
+                            <i class="fa-solid fa-medal"></i>
+
+                            Melhor resultado:
+
+                            <strong id="best-score">
+                                0/8
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            id="restart-quiz"
+                            class="button primary-button"
+                        >
+                            <i class="fa-solid fa-rotate-right"></i>
+
+                            Refazer quiz
+                        </button>
+
+                    </article>
 
                 </div>
 
@@ -828,14 +986,35 @@
                 </a>
 
                 <p>
-                    Projeto de estudo sobre desenvolvimento web.
+                    Projeto de estudo desenvolvido com HTML,
+                    CSS e JavaScript puro.
                 </p>
 
             </div>
 
 
+            <div class="footer-tech">
+
+                <span>
+                    <i class="fa-brands fa-html5"></i>
+                    HTML
+                </span>
+
+                <span>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    CSS
+                </span>
+
+                <span>
+                    <i class="fa-brands fa-js"></i>
+                    JavaScript
+                </span>
+
+            </div>
+
+
             <p>
-                © 2026 Guilherme
+                © <span id="current-year"></span> Guilherme
             </p>
 
         </div>
@@ -848,11 +1027,9 @@
     <button
         id="back-to-top"
         class="back-to-top"
-        aria-label="Voltar ao topo da página"
+        aria-label="Voltar ao topo"
     >
-
         <i class="fa-solid fa-arrow-up"></i>
-
     </button>
 
 
